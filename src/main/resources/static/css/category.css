@@ -1,0 +1,986 @@
+/* ============================================================
+   category.css - 카테고리 학습 / 문제 목록 / 문제 상세 / 해설 공통
+   ============================================================ */
+
+/* ── 공통 배경 ── */
+.category-main,
+.category-list-main,
+.problem-main {
+  background-color: var(--color-bg-main);
+  min-height: calc(100vh - 80px - 100px);
+}
+
+/* ── 브레드크럼 ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb-item {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #767676;
+  text-decoration: none;
+}
+.breadcrumb-item.active {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.breadcrumb-sep {
+  color: #767676;
+  font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   카테고리 학습 메인
+   ═══════════════════════════════════════════════════════════ */
+
+.category-page-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 100px 80px;
+}
+
+.category-page-header {
+  margin-bottom: 40px;
+}
+
+.category-page-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  color: var(--color-primary);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.category-page-subtitle {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #5B5B5B;
+}
+
+/* 카테고리 그리드 */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  background: #FAFCF9;
+  border: 1.5px solid #B8BEC5;
+  border-radius: 11px;
+  padding: 32px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+}
+.category-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.12);
+}
+
+.category-card-icon-wrap {
+  width: 116px;
+  height: 116px;
+  background: #EFFBEF;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.category-card-icon-wrap svg {
+  width: 64px;
+  height: 64px;
+}
+
+.category-card-name {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 26px;
+  color: #1A1A1A;
+  text-align: center;
+}
+
+.category-card-desc {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  color: #5B5B5B;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   카테고리 별 문제 목록 페이지
+   ═══════════════════════════════════════════════════════════ */
+
+.category-list-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 100px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 타이틀 섹션 */
+.category-list-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.category-list-desc {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #5B5B5B;
+  line-height: 1.5;
+}
+
+/* 진행률 카드 */
+.progress-card {
+  background: #fff;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 40px;
+  box-shadow: 0 6px 13px rgba(0, 0, 0, 0.03);
+  padding: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.progress-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+/* 링 차트 */
+.progress-ring-wrap {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.progress-ring-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #E8F5E9;
+}
+
+.progress-ring-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(#4CAF50 var(--pct, 0%), transparent 0);
+  mask: radial-gradient(farthest-side, transparent 60%, black 60%);
+  -webkit-mask: radial-gradient(farthest-side, transparent 60%, black 60%);
+}
+
+.progress-ring-center {
+  position: absolute;
+  inset: 20%;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.progress-ring-pct {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  color: #1A1A1A;
+  line-height: 1;
+}
+
+.progress-ring-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #767676;
+}
+
+.progress-divider {
+  width: 1.5px;
+  height: 165px;
+  background: #EAEAEA;
+  flex-shrink: 0;
+}
+
+/* 통계 */
+.progress-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.progress-stat-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #767676;
+  margin-bottom: 4px;
+}
+
+.progress-stat-value {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #1A1A1A;
+}
+
+.progress-stat-value.green {
+  color: var(--color-primary);
+}
+
+/* 오른쪽 미니 카드 */
+.progress-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+  max-width: 420px;
+}
+
+.mini-card {
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mini-card.gray { background: #F5F5F5; }
+.mini-card.green { background: #E8F5E9; }
+
+.mini-card-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #767676;
+}
+.mini-card.green .mini-card-label { color: var(--color-primary); }
+
+.mini-card-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  color: #1A1A1A;
+}
+
+.mini-card-meta {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #767676;
+}
+
+.mini-card-tip {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: #1A1A1A;
+  line-height: 1.4;
+}
+
+/* 필터 바 */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.filter-selects {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.filter-select {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  background: #fff;
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  width: 220px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.filter-select-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #767676;
+  flex-shrink: 0;
+}
+
+.filter-select-value {
+  flex: 1;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: #1A1A1A;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: right;
+  appearance: none;
+}
+
+.sort-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.sort-dropdown span {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #1A1A1A;
+}
+
+/* 문제 목록 */
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.problem-row {
+  background: #fff;
+  border: 1px solid #EAEAEA;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.problem-row:hover {
+  border-color: var(--color-primary);
+}
+
+.problem-row-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 상태 인디케이터 */
+.status-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.status-dot.solved { background: var(--color-primary); }
+.status-dot.wrong { background: #FFEBEE; border: 1.5px solid #C62828; }
+.status-dot.unsolved { background: #fff; border: 1.5px solid #B8BEC5; }
+
+.status-dot-check {
+  width: 10px;
+  height: 10px;
+  color: #fff;
+}
+
+.problem-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.problem-row-num {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #767676;
+}
+
+.problem-row-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1A1A1A;
+}
+
+.problem-row-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.type-badge {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.type-badge.mcq { background: #EFFBEF; color: #2E7D32; }
+.type-badge.fill { background: #FFF3E0; color: #E65100; }
+
+.diff-badge {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+}
+.diff-badge.easy { background: #EFFBEF; color: #2E7D32; }
+.diff-badge.medium { background: #FFF3E0; color: #E65100; }
+.diff-badge.hard { background: #FFEBEE; color: #C62828; }
+
+.problem-row-sub {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: #767676;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.problem-row-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+/* 액션 버튼 */
+.problem-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  background: #fff;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+.problem-action-btn:hover { background: #EFFBEF; color: var(--color-primary); }
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 0;
+}
+
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #767676;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.page-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   문제 상세 페이지 (공통)
+   ═══════════════════════════════════════════════════════════ */
+
+.problem-page-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 100px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 문제 헤더 */
+.problem-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.problem-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.problem-main-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: #1A1A1A;
+}
+
+.problem-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 18px;
+  background: #E8F5E9;
+  border-radius: 18px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-primary);
+}
+
+.exit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  background: #fff;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 12px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #767676;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+.exit-btn:hover { border-color: #9CA3AF; color: #767676; }
+
+/* 문제 카드 */
+.problem-card {
+  background: #fff;
+  border: 1px solid #EAEAEA;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.problem-question {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1A1A1A;
+}
+
+/* 2열 레이아웃 */
+.problem-columns {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.problem-col-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.problem-col-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 코드 에디터 */
+.code-editor {
+  background: #1E1E1E;
+  border: 1px solid #2D2D2D;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  min-height: 280px;
+}
+
+.code-line-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: #5A5B5B;
+  font-family: 'Pretendard', 'Noto Sans KR', monospace, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.code-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: 'Pretendard', 'Noto Sans KR', monospace, sans-serif;
+  font-size: 16px;
+  color: #D4D4D4;
+  flex: 1;
+}
+
+.code-line { line-height: 1; white-space: pre; }
+
+.code-kw { color: #C586C0; }
+.code-type { color: #569CD6; }
+.code-num { color: #B5CEA8; }
+.code-sys { color: #4FC1FF; }
+.code-fn { color: #DCDCAA; }
+
+/* 객관식 선택지 */
+.choice-option {
+  background: #fff;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 12px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.choice-option:hover { border-color: var(--color-primary); background: #EFFBEF; }
+.choice-option.selected {
+  background: #E8F4E8;
+  border-color: var(--color-primary);
+}
+
+.choice-option-text {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 19px;
+  color: #5B5B5B;
+  white-space: pre;
+}
+
+.choice-option.selected .choice-option-text { color: var(--color-primary); font-weight: 700; }
+
+.choice-check {
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* 빈칸 주관식 */
+.fill-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fill-input-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1A1A1A;
+}
+
+.fill-input-field {
+  height: 55px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 12px;
+  padding: 0 24px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  color: #5B5B5B;
+  background: #fff;
+  outline: none;
+  width: 100%;
+}
+.fill-input-field::placeholder { color: #9CA3AF; }
+.fill-input-field:focus { border-color: var(--color-primary); }
+
+.fill-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.fill-hint-text {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #767676;
+  line-height: 1.5;
+}
+
+/* 제출 푸터 */
+.submit-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 12px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: filter var(--transition-fast);
+}
+.submit-btn:hover { filter: brightness(1.08); }
+
+/* ═══════════════════════════════════════════════════════════
+   문제 해설 페이지
+   ═══════════════════════════════════════════════════════════ */
+
+.explanation-card {
+  background: #fff;
+  border: 1.5px solid #B8BEC5;
+  border-radius: 12px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.explanation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.explanation-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.explanation-problem-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #1E1E1E;
+}
+
+.explanation-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: #DCEFD9;
+  border-radius: 12px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #43A047;
+}
+
+.explanation-status {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+.explanation-status.wrong { color: #D93025; }
+.explanation-status.correct { color: var(--color-primary); }
+
+.explanation-divider {
+  width: 100%;
+  height: 1.5px;
+  background: #E6E6E6;
+}
+
+.explanation-question {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1E1E1E;
+}
+
+/* 해설용 코드블록 */
+.explanation-code {
+  background: #F2F2F7;
+  border: 1.5px solid #E6E6E6;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.explanation-code .code-line-numbers {
+  color: #9CA3AF;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+}
+
+.explanation-code .code-lines {
+  color: #1E1E1E;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* 해설용 선택지 */
+.explanation-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.explanation-choice {
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.explanation-choice.wrong { background: #FCE8E6; border: 1.5px solid #D93025; }
+.explanation-choice.correct { background: #EFFBEF; border: 1.5px solid #43A047; }
+.explanation-choice.neutral { background: #fff; border: 1.5px solid #D9D9D9; }
+
+.explanation-choice-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+}
+.explanation-choice.wrong .explanation-choice-marker { background: #D93025; }
+.explanation-choice.correct .explanation-choice-marker { background: #43A047; }
+.explanation-choice.neutral .explanation-choice-marker { background: #D9D9D9; }
+
+.explanation-choice-text {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: pre;
+}
+.explanation-choice.wrong .explanation-choice-text { color: #D93025; }
+.explanation-choice.correct .explanation-choice-text { color: #43A047; }
+.explanation-choice.neutral .explanation-choice-text { color: #5B5B5B; font-weight: 500; }
+
+/* 해설 블록 */
+.explanation-section-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.explanation-block {
+  background: #FAFBF9;
+  border: 1px solid var(--color-primary);
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  color: #1E1E1E;
+  line-height: 1.7;
+}
+
+.explanation-block-heading {
+  font-weight: 700;
+  color: #43A047;
+  margin-bottom: 4px;
+}
+
+/* 하단 버튼 */
+.explanation-bottom-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.btn-back-list {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 24px;
+  background: #fff;
+  border: 1.5px solid #9CA3AF;
+  border-radius: 8px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #5B5B5B;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-next-problem {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 24px;
+  background: var(--color-primary);
+  border-radius: 8px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter var(--transition-fast);
+}
+.btn-next-problem:hover { filter: brightness(1.08); color: #fff; }

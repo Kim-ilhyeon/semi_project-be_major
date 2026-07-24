@@ -1,0 +1,346 @@
+/* ============================================================
+   main_user.css - 로그인 메인 페이지 스타일
+   ============================================================ */
+
+.user-main-page {
+  background-color: var(--color-bg-main);
+  min-height: calc(100vh - 80px - 100px);
+}
+
+/* ── 히어로 섹션 ── */
+.user-hero {
+  padding: 40px 0 48px;
+}
+
+.user-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+/* 히어로 배너 카드 */
+.hero-banner-card {
+  background-color: #FAF9F3;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: stretch;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.hero-banner-left {
+  flex: 1;
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* 인사말 */
+.hero-greeting-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.hero-greeting-sub {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+}
+
+/* 미션 카드 */
+.mission-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mission-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-text-primary);
+}
+
+.mission-fields {
+  display: flex;
+  gap: 12px;
+}
+
+.mission-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mission-field-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.mission-select {
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background-color: #fff;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4.5 6.75L9 11.25L13.5 6.75' stroke='%23B3B3B3' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+.mission-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* 진행 상황 */
+.mission-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mission-progress-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.mission-progress-current {
+  font-size: 40px;
+  font-weight: 700;
+  color: #3B8C50;
+  line-height: 1;
+}
+
+.mission-progress-total,
+.mission-progress-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.mission-progress-bar-wrap {
+  width: 100%;
+  height: 9px;
+  background-color: #E6E6E6;
+  border-radius: 51px;
+  overflow: hidden;
+}
+
+.mission-progress-bar {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 51px;
+  transition: width 0.4s ease;
+}
+
+/* 학습 시작 버튼 */
+.mission-start-btn {
+  height: 44px;
+  background: linear-gradient(90deg, #279A2C 0%, #279A2C 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.4px;
+  transition: filter var(--transition-fast);
+}
+.mission-start-btn:hover {
+  filter: brightness(1.08);
+  color: #fff;
+}
+
+/* 오른쪽 패널 (히어로 — 양 이미지만) */
+.hero-banner-right {
+  width: 360px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-sheep-img {
+  width: 300px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* ── 나의 학습 잔디 ── */
+.grass-section {
+  padding: 16px 0 40px;
+}
+
+.grass-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.grass-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--color-text-primary);
+  margin-bottom: 12px;
+}
+
+/* 잔디 + 통계 가로 배치 */
+.grass-layout {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.grass-card {
+  flex: 1;
+  min-width: 0;
+  background: #fff;
+  border: 1.3px solid #000;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+  padding: 18px 28px 20px;
+}
+
+.grass-months {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.grass-months span {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+/* 잔디 그리드: 21열 (3개월 x 7일), 가변 너비 */
+.grass-grid {
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  gap: 5px;
+}
+
+.grass-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+}
+
+.grass-cell.grass-lv0 { background-color: #D9D9D9; }
+.grass-cell.grass-lv1 { background-color: #DCEFD9; }
+.grass-cell.grass-lv2 { background-color: var(--color-primary); }
+
+/* 통계 사이드바 */
+.grass-stats {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 통계 카드 공통 */
+.stat-card {
+  background: #fff;
+  border: 1px solid #B3B3B3;
+  border-radius: 11px;
+  padding: 16px 20px;
+}
+
+.streak-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-card-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+.stat-card-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stat-big {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 52px;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.stat-unit {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-text-primary);
+}
+
+/* 총문제/정답률 카드 */
+.record-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.record-row {
+  padding: 10px 0;
+}
+
+.record-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #B3B3B3;
+}
+
+.record-sub-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.record-sub-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.record-big {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.record-unit {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}

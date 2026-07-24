@@ -1,0 +1,198 @@
+/* ============================================================
+   common.css - 공통 CSS 변수 및 기본 스타일
+   Spring Web + JSP 프로젝트
+   ============================================================ */
+
+/* ── 색상 팔레트 (CSS 변수) ── */
+:root {
+  /* Brand Colors - Primary Green */
+  --color-primary:        #4CAF50;   /* 메인 버튼, 로고 */
+  --color-primary-hover:  #43A047;   /* 버튼 Hover */
+  --color-light-green:    #E8F5E9;   /* 배경 포인트 */
+  --color-very-light:     #F8FFF8;   /* 페이지 배경 */
+  --color-success:        #66BB6A;   /* 정답, 진행률 */
+
+  /* Secondary Colors */
+  --color-mint:           #F1FAF2;   /* 카드 배경 */
+  --color-pale-green:     #EDF7ED;   /* 카테고리 카드 */
+  --color-border:         #DCEFD9;   /* 테두리 */
+
+  /* Background Colors */
+  --color-bg-main:        #FAFCF9;   /* 메인 배경 */
+  --color-bg-card:        #FFFFFF;   /* 카드 배경 */
+  --color-bg-sub:         #F7F9F8;   /* 서브 배경 */
+
+  /* Text Colors */
+  --color-text-primary:   #1A1A1A;   /* 기본 텍스트 */
+  --color-text-secondary: #555555;   /* 서브 텍스트 */
+  --color-text-muted:     #888888;   /* 비활성 텍스트 */
+  --color-text-on-primary:#FFFFFF;   /* 버튼 위 텍스트 */
+
+  /* Semantic */
+  --color-error:          #E53935;   /* 오류, 경고 */
+  --color-warning:        #FFA726;   /* 주의 */
+  --color-info:           #42A5F5;   /* 정보 */
+
+  /* ── 공통 수치 ── */
+  --border-radius-sm:     6px;
+  --border-radius-md:     10px;
+  --border-radius-lg:     16px;
+  --border-radius-xl:     24px;
+
+  --shadow-card: 0 2px 8px rgba(76, 175, 80, 0.08);
+  --shadow-hover: 0 4px 16px rgba(76, 175, 80, 0.18);
+
+  --transition-fast:  0.15s ease;
+  --transition-base:  0.25s ease;
+}
+
+/* ── Reset / Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Inter', sans-serif;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── 공통 버튼 ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              transform var(--transition-fast);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-hover);
+  color: var(--color-text-on-primary);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-light-green);
+}
+
+.btn-secondary {
+  background-color: var(--color-pale-green);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+.btn-secondary:hover {
+  background-color: var(--color-mint);
+}
+
+/* ── 공통 카드 ── */
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  transition: box-shadow var(--transition-base);
+}
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── 공통 배지 ── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-primary {
+  background-color: var(--color-light-green);
+  color: var(--color-primary);
+}
+.badge-success {
+  background-color: var(--color-success);
+  color: #fff;
+}
+
+/* ── 공통 인풋 ── */
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: 0.95rem;
+  background-color: var(--color-bg-card);
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ── 레이아웃 유틸 ── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 48px 0;
+}
+
+/* ── 구분선 ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 24px 0;
+}

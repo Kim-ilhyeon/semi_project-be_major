@@ -1,0 +1,445 @@
+/* ============================================================
+   auth.css - 로그인 / 회원가입 / 아이디·비밀번호 찾기 공통 스타일
+   ============================================================ */
+
+.auth-page {
+  background-color: #fff;
+}
+
+/* ── 전체 레이아웃 ── */
+.auth-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px - 100px);
+  background: linear-gradient(to bottom, var(--color-bg-main) 0%, var(--color-bg-main) 45%, var(--color-light-green) 100%);
+}
+
+/* ── 브랜딩 영역 (상단) ── */
+.auth-branding {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 32px 24px;
+  gap: 24px;
+}
+
+.branding-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.branding-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #1A1A1A;
+  letter-spacing: -0.02em;
+}
+
+.branding-sub {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #5B5B5B;
+}
+
+.branding-image {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+.branding-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── 카드 영역 (하단) ── */
+.auth-card-wrap {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  padding: 0 32px 80px;
+}
+
+.auth-card {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.auth-card-header {
+  margin-bottom: 28px;
+}
+
+.auth-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: #1A1A1A;
+  margin-bottom: 10px;
+}
+
+.auth-subtitle {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: #1A1A1A;
+}
+
+/* ── 오류 메시지 ── */
+.auth-error {
+  background-color: rgba(255, 68, 68, 0.08);
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  color: #e03a3a;
+  margin-bottom: 20px;
+}
+
+/* ── 폼 ── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1A1A1A;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 64px;
+  border: 2px solid #9CA3AF;
+  border-radius: 12px;
+  padding: 0 20px;
+  background: #fff;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.input-wrap:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+.input-wrap svg { flex-shrink: 0; }
+
+.form-input-inner {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #1A1A1A;
+  background: transparent;
+  min-width: 0;
+}
+.form-input-inner::placeholder { color: #9CA3AF; }
+
+/* ── 옵션 (체크박스 + 링크) ── */
+.auth-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 4px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #1A1A1A;
+  cursor: pointer;
+}
+.checkbox-label input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  border: 1.6px solid #9CA3AF;
+  border-radius: 4px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.auth-link {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+.auth-link:hover { color: var(--color-primary); }
+
+/* ── 제출 버튼 ── */
+.auth-submit-btn {
+  width: 100%;
+  height: 64px;
+  border-radius: 12px;
+  font-size: 24px;
+  margin-top: 8px;
+}
+
+/* ── 구분선 ── */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0;
+  color: #9CA3AF;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #B3B3B3;
+}
+
+/* ── 소셜 버튼 ── */
+.social-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 60px;
+  background: #fff;
+  border: 1px solid #B3B3B3;
+  border-radius: 12px;
+  text-decoration: none;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #1A1A1A;
+  transition: background-color var(--transition-fast);
+}
+.social-btn:hover {
+  background-color: #F5F5F5;
+  color: #1A1A1A;
+}
+
+/* ── 하단 전환 링크 ── */
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #1A1A1A;
+}
+
+.auth-link-primary {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-primary-hover);
+  text-decoration: none;
+  margin-left: 4px;
+}
+.auth-link-primary:hover { color: var(--color-primary); }
+
+/* ══ 아이디/비밀번호 찾기 전용 ══ */
+.find-page {
+  background-color: var(--color-bg-main);
+  min-height: calc(100vh - 80px - 100px);
+  position: relative;
+}
+
+.find-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 140px;
+  height: 360px;
+  box-sizing: border-box;
+}
+
+.find-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.find-hero-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 1.2;
+  color: #1A1A1A;
+}
+
+.find-hero-sub {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #5B5B5B;
+}
+
+.find-hero-image {
+  width: 280px;
+  height: 280px;
+  flex-shrink: 0;
+}
+.find-hero-image svg { width: 100%; height: 100%; }
+
+/* 카드 */
+.find-card-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 100px 80px;
+}
+
+.find-card {
+  width: 853px;
+  background: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 56px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 탭 */
+.find-tabs {
+  display: flex;
+  height: 60px;
+  border-bottom: 2px solid var(--color-border);
+  position: relative;
+}
+
+.find-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: #5B5B5B;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+  margin-bottom: -2px;
+  transition: color var(--transition-fast);
+}
+.find-tab.active {
+  font-weight: 700;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* 폼 */
+.find-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.find-field-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1A1A1A;
+  margin-bottom: 2px;
+}
+
+.find-submit-btn {
+  width: 100%;
+  height: 64px;
+  border-radius: 12px;
+  font-size: 24px;
+  margin-top: 16px;
+}
+
+/* 결과 박스 */
+.find-result {
+  background-color: #F2FCF5;
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.find-result-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-primary-hover);
+}
+
+.find-result-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1E1E1E;
+}
+.find-result-row .result-email { color: var(--color-primary); font-weight: 700; }
+
+.find-result-note {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #5B5B5B;
+}
+
+/* 하단 링크 */
+.find-alt-link {
+  display: flex;
+  justify-content: flex-end;
+}
+.find-alt-link a {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.find-alt-link a:hover { color: var(--color-primary-hover); }

@@ -1,0 +1,243 @@
+/* ============================================================
+   service_intro.css - 서비스 소개 페이지 스타일
+   ============================================================ */
+
+.intro-page {
+  background-color: var(--color-bg-main);
+}
+
+/* ── 히어로 ── */
+.intro-hero {
+  background-color: var(--color-light-green);
+  padding: 80px 0;
+}
+
+.intro-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 249px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.intro-hero-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  color: #212121;
+  white-space: nowrap;
+}
+
+.intro-hero-sub {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #737373;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.intro-hero-btns {
+  display: flex;
+  gap: 16px;
+}
+
+.intro-btn-primary {
+  background-color: #34C759;
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  font-size: 16px;
+  border-radius: 12px;
+}
+.intro-btn-primary:hover { background-color: #2db34a; color: #fff; }
+
+.intro-btn-outline {
+  background-color: #fff;
+  color: #34C759;
+  border: 2px solid #34C759;
+  padding: 16px 36px;
+  font-size: 16px;
+  border-radius: 12px;
+}
+.intro-btn-outline:hover { background-color: var(--color-light-green); color: #34C759; }
+
+/* ── 공통 섹션 ── */
+.intro-section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 249px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.intro-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.intro-section-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #212121;
+  text-align: center;
+  margin-top: -40px;
+}
+
+/* ── 기능 카드 ── */
+.intro-features {
+  background-color: #fff;
+}
+
+.feature-cards {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feature-card {
+  width: 280px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.feature-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.feature-card-icon {
+  width: 64px;
+  height: 64px;
+  background-color: #EBFAED;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.feature-card-name {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #212121;
+}
+
+.feature-card-desc {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #737373;
+  line-height: 1.7;
+}
+
+/* ── 통계 ── */
+.intro-stats {
+  background-color: var(--color-light-green);
+}
+
+.stats-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 249px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 140px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-number {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--color-primary);
+}
+
+.stat-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #737373;
+}
+
+/* ── 후기 ── */
+.intro-reviews {
+  background-color: #fff;
+}
+
+.review-cards {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.review-card {
+  width: 380px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  transition: box-shadow var(--transition-base);
+}
+.review-card:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.review-stars {
+  font-size: 16px;
+}
+
+.review-content {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #737373;
+  line-height: 1.75;
+}
+
+.review-divider {
+  border: none;
+  border-top: 1px solid #EBEBEB;
+  margin: 0;
+}
+
+.review-author {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  color: #737373;
+}
+.review-author strong {
+  color: #212121;
+  font-weight: 600;
+}
